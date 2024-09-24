@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ChildComponent } from "../child/child.component";
 import { ChildPushComponent } from "../child-push/child-push.component";
+import { ChangeDetectionService } from 'src/app/providers/change-detection.service';
 
 // Implementing Check Counter to run outside angular to prevent unnecessary checks and NG100 error
 let checkCounter = 0;
@@ -16,6 +17,7 @@ let checkCounter = 0;
 })
 export class ParentComponent{
   counter: number = 0;
+  cds = inject(ChangeDetectionService);
   user = {
     name: "U1",
     age: 10

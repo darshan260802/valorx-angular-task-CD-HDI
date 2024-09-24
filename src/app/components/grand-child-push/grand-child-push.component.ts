@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject, Input, NgZone } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ChangeDetectionService } from 'src/app/providers/change-detection.service';
 
 // Implementing Check Counter to run outside angular to prevent unnecessary checks and NG100 error
 let checkCounter = 0;
@@ -17,6 +18,7 @@ export class GrandChildPushComponent {
   @Input() childUser:{[key:string]:string|number} = {}
   @Input() index:number = 0
   counter: number = 0;
+  cds = inject(ChangeDetectionService);
   user = {
     name: "U5",
     age: 50

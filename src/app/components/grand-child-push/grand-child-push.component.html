@@ -10,6 +10,10 @@
       >Checks Count: <span [id]="'checkCountGP'+index" class="ms-2"></span
     ></span>
   </div>
+  <div class="stripe">
+    <button class="px-2 py-1 bg-slate-800 rounded-md"
+    (click)="cds.counter = cds.counter + 1">CD Service Count (click): {{cds.counter}}</button>
+  </div>
   <div class="stripe parent-data">
     <span class="bg-cyan-700/80 px-2 py-1 rounded-md">Child Data : {{childUser | json}}</span>
   </div>
