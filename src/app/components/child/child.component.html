@@ -1,0 +1,11 @@
+<div class="child-wrapper w-full border bg-rose-800/20 h-full flex flex-col gap-2 p-2">
+    <div class="flex gap-2 items-center">
+        <h1 class="text-xl">Child Component</h1>
+        <span class="flex p-1 bg-amber-900/50 rounded-lg"
+          >CD Strategy: Default</span>
+        <span class="flex p-1 bg-green-900/50 rounded-lg"
+          >Checks Count: <span id="checkCountC" class="ms-2"></span
+        ></span>
+      </div>
+</div>
+<ng-container *ngIf="checkIncrement()" ></ng-container>
