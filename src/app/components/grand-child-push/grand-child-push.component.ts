@@ -1,26 +1,25 @@
 import { ChangeDetectionStrategy, Component, inject, Input, NgZone } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { GrandChildComponent } from "../grand-child/grand-child.component";
-import { GrandChildPushComponent } from "../grand-child-push/grand-child-push.component";
 
 // Implementing Check Counter to run outside angular to prevent unnecessary checks and NG100 error
 let checkCounter = 0;
 
 @Component({
-  selector: 'app-child-push',
+  selector: 'app-grand-child-push',
   standalone: true,
-  imports: [CommonModule, FormsModule, GrandChildComponent, GrandChildPushComponent],
-  templateUrl: './child-push.component.html',
-  styleUrls: ['./child-push.component.scss'],
+  imports: [CommonModule, FormsModule],
+  templateUrl: './grand-child-push.component.html',
+  styleUrls: ['./grand-child-push.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ChildPushComponent {
-  @Input() parentUser:{[key:string]:string|number} = {}
+export class GrandChildPushComponent {
+  @Input() childUser:{[key:string]:string|number} = {}
+  @Input() index:number = 0
   counter: number = 0;
   user = {
-    name: "U2",
-    age: 20
+    name: "U5",
+    age: 50
   }
   
   ngZone = inject(NgZone);
@@ -29,7 +28,7 @@ export class ChildPushComponent {
     // Implementing Check Counter to run outside angular to prevent unnecessary checks and NG100 error
     this.ngZone.runOutsideAngular(() => {
       checkCounter += 1;
-      document.querySelector('#checkCountCP')!.innerHTML = '' + checkCounter;
+      document.querySelector('#checkCountGP'+this.index)!.innerHTML = '' + checkCounter;
     });
     return true
   }

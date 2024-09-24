@@ -63,5 +63,7 @@
       </button>
     </div>
   </div>
+  <app-grand-child [index]="1" [childUser]="user" ></app-grand-child>
+  <app-grand-child-push [index]="1" [childUser]="user" ></app-grand-child-push>
 </div>
 <ng-container *ngIf="checkIncrement()"></ng-container>

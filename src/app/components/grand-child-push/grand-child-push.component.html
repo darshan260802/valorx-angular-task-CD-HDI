@@ -1,15 +1,17 @@
 <div
-  class="child-wrapper w-full border bg-rose-800/20 h-full flex flex-col gap-2 p-2"
+  class="grand-child-wrapper w-full border bg-rose-800/20 h-full flex flex-col gap-2 p-2"
 >
   <div class="flex gap-2 items-center">
-    <h1 class="text-xl">Child Component</h1>
-    <span class="flex p-1 bg-yellow-300/50 rounded-lg">CD Strategy: OnPush</span>
+    <h1 class="text-xl">Grand Child Component</h1>
+    <span class="flex p-1 bg-yellow-300/50 rounded-lg"
+      >CD Strategy: OnPush</span
+    >
     <span class="flex p-1 bg-green-900/50 rounded-lg"
-      >Checks Count: <span id="checkCountCP" class="ms-2"></span
+      >Checks Count: <span [id]="'checkCountGP'+index" class="ms-2"></span
     ></span>
   </div>
   <div class="stripe parent-data">
-    <span class="bg-cyan-700/80 px-2 py-1 rounded-md">Parent Data : {{parentUser | json}}</span>
+    <span class="bg-cyan-700/80 px-2 py-1 rounded-md">Child Data : {{childUser | json}}</span>
   </div>
   <div class="stripe flex gap-2">
     <button
@@ -61,7 +63,5 @@
       </button>
     </div>
   </div>
-  <app-grand-child [childUser]="user" ></app-grand-child>
-  <app-grand-child-push [childUser]="user" ></app-grand-child-push>
 </div>
 <ng-container *ngIf="checkIncrement()"></ng-container>
