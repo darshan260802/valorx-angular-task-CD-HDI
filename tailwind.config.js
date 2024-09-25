@@ -4,7 +4,17 @@ module.exports = {
     "./src/**/*.{html,ts}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily:{
+        inter: ['inter', 'ui-sans-serif', 'system-ui']
+      }
+    },
   },
-  plugins: [],
+  daisyui:{
+    themes:['wireframe']
+  },
+  plugins: [
+    require("@tailwindcss/typography"),
+    require('daisyui'),
+  ],
 }

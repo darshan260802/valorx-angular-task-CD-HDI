@@ -1,7 +1,9 @@
-<div class="app-wrapper h-screen w-screen relative overflow-hidden bg-zinc-900 text-zinc-100 ">
-  <div class="navigator-container absolute left-1/2 -translate-x-1/2 top-3 border border-zinc-900 shadow-md shadow-zinc-700 rounded-lg overflow-hidden ">
-    <button class="p-2 bg-slate-100 text-zinc-900 transition-colors duration-300 select-none" routerLink="change-detection" routerLinkActive="active"  >Change Detection</button>
-    <button class="p-2 bg-slate-100 text-zinc-900 transition-colors duration-300 select-none" routerLink="hierarchical-dependency-injection" routerLinkActive="active"  >Hierarchical Dependency Injection</button>
+<div class="app-wrapper h-screen w-screen relative overflow-hidden flex flex-col justify-between items-center gap-3 ">
+  <div role="tablist" class="tabs tabs-boxed mt-3 h-10">
+    <a role="tab" routerLink="change-detection" routerLinkActive="tab-active" class="tab">Change Detection</a>
+    <a role="tab" routerLink="hierarchical-dependency-injection" routerLinkActive="tab-active" class="tab">Hierarchical Dependency Injection</a>
   </div>
-  <router-outlet></router-outlet>
+  <div class="h-full w-full p-2">
+    <router-outlet></router-outlet>
+  </div>
 </div>

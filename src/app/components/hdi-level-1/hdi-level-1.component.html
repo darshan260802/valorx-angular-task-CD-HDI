@@ -1,0 +1,8 @@
+<div class="hdi-level-1-container h-full w-full p-2 border-2 bg-primary rounded-md flex flex-col gap-2 items-start">
+    <div class="flex gap-2 items-center">
+        <h1 class="text-xl font-medium ">Level 1</h1>
+    </div>
+    <h1 class="text-md w-fit bg-green-200 p-1 rounded-md">Injector : ElementInjector (HdiLevel1Component.providers = [HdiService])</h1>
+    <button class="btn btn-info btn-sm" (click)="hdi.count = hdi.count + 1" >HDI Service Counter (click): {{hdi.count}}</button>
+    <app-hdi-level-2></app-hdi-level-2>
+</div>

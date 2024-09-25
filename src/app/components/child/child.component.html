@@ -1,73 +1,71 @@
 <div
-  class="child-wrapper w-full border bg-rose-800/20 h-full flex flex-col gap-2 p-2"
+  class="child-wrapper w-full border bg-primary h-full flex flex-col gap-2 p-2 rounded-md"
 >
   <div class="flex gap-2 items-center">
     <h1 class="text-xl">Child Component</h1>
-    <span class="flex p-1 bg-amber-900/50 rounded-lg"
-      >CD Strategy: Default</span
-    >
-    <span class="flex p-1 bg-green-900/50 rounded-lg"
-      >Checks Count: <span id="checkCountC" class="ms-2"></span
+    <span class="flex p-1 bg-neutral rounded-lg">CD Strategy: Default</span>
+    <span class="flex p-1 bg-neutral rounded-lg"
+      >Renders: <span id="checkCountC" class="ms-2"></span
     ></span>
   </div>
   <div class="stripe">
-    <button class="px-2 py-1 bg-slate-800 rounded-md"
+    <button class="btn btn-sm btn-info"
     (click)="cds.counter = cds.counter + 1">CD Service Count (click): {{cds.counter}}</button>
   </div>
   <div class="stripe parent-data">
-    <span class="bg-cyan-700/80 px-2 py-1 rounded-md">Parent Data : {{parentUser | json}}</span>
+    <span class="bg-accent px-2 py-1 rounded-md">Parent Data : {{parentUser | json}}</span>
   </div>
-  <div class="stripe flex gap-2">
+  <div class="stripe flex gap-2 items-center">
     <button
-      class="px-2 py-1 bg-slate-800 rounded-md"
+      class="btn btn-sm btn-info"
       (click)="counter = counter + 1"
     >
       Click Me : {{ counter }}
     </button>
-    <div class="bg-zinc-900/80 py-1 px-2 rounded-md">
-      <span class="p-1 bg-green-700/50 rounded-md">USER | [(ngModel)]</span>
+    <div class="bg-neutral py-1 px-2 rounded-full leading-none flex items-center gap-2">
+      <span class=" bg-accent text-accent-content p-2 rounded-full leading-none">USER | [(ngModel)]</span>
       {{ "{" }} name :
       <input
         type="text"
-        class="bg-slate-800 rounded-md outline-none p-1"
+        class="input input-bordered input-sm"
         [(ngModel)]="user.name"
       />
       , age:
       <input
         type="number"
-        class="bg-slate-800 rounded-md outline-none p-1"
+        class="input input-bordered input-sm"
         [(ngModel)]="user.age"
       />
       {{ "}" }}
     </div>
   </div>
   <div class="stripe w-fit">
-    <div class="bg-zinc-900/80 py-1 px-2 rounded-md">
-      <span class="p-1">USER = </span>
+    <div class="bg-neutral py-1 px-2 rounded-full flex items-center gap-2">
+      <span class=" p-2 bg-accent text-accent-content rounded-full leading-none">USER = </span>
       {{ "{" }} name :
       <input
         type="text"
         [defaultValue]="user.name"
-        class="bg-slate-800 rounded-md outline-none p-1"
+        class="input input-bordered input-sm"
         #name
       />
       , age:
       <input
         type="number"
         [defaultValue]="user.age"
-        class="bg-slate-800 rounded-md outline-none p-1"
+        class="input input-bordered input-sm"
         #age
       />
       {{ "}" }}
       <button
-        class="px-2 py-1 bg-green-800/60 rounded-md ms-2"
+        class="btn btn-sm btn-info rounded-full"
         (click)="user = { name: name.value, age: +age.value }"
       >
         Update
       </button>
     </div>
   </div>
-  <app-grand-child [index]="1" [childUser]="user" ></app-grand-child>
-  <app-grand-child-push [index]="1" [childUser]="user" ></app-grand-child-push>
+  <app-grand-child [childUser]="user" [index]="1" ></app-grand-child>
+  <app-grand-child-push [childUser]="user" [index]="1" ></app-grand-child-push>
 </div>
 <ng-container *ngIf="checkIncrement()"></ng-container>

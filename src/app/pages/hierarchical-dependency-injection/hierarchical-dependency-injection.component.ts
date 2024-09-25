@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { HdiService } from 'src/app/providers/hdi.service';
 
 @Component({
   selector: 'app-hierarchical-dependency-injection',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./hierarchical-dependency-injection.component.scss']
 })
 export class HierarchicalDependencyInjectionComponent {
-
+  hdi = inject(HdiService);
 }

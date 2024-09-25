@@ -1,1 +1,52 @@
-<p>hierarchical-dependency-injection works!</p>
+<div class="hdi-wrapper h-full w-full grid grid-cols-3 gap-2">
+  <div
+    class="hdi-container col-span-2 h-full w-full p-2 border-2 bg-neutral rounded-md flex flex-col gap-2 items-start"
+  >
+    <div class="flex gap-2 items-center">
+      <h1 class="text-xl font-medium">Hierarchical Dependency Injection</h1>
+    </div>
+    <h1 class="text-md w-fit bg-accent p-1 rounded-md">
+      Injector : RootInjector (providedIn: 'root')
+    </h1>
+    <button class="btn btn-sm btn-info" (click)="hdi.count = hdi.count + 1">
+      HDI Service Counter (click): {{ hdi.count }}
+    </button>
+    <div class="grid h-full grid-cols-2 gap-2 w-full">
+      <app-hdi-level-1></app-hdi-level-1>
+      <app-hdi-level-1></app-hdi-level-1>
+    </div>
+  </div>
+  <div class="description prose w-full h-full bg-neutral rounded-md">
+    <ul>
+      <li>
+        Hierarchical Dependency Injection allows us to inject dependency at
+        multiple levels and isolate sections of application and give them
+        private dependency independent from the app
+      </li>
+      <li>
+        There are 5 types of injectors, EnvironmentInjector(root),
+        ModuleInjector, ElementInjector, NullInjector, PlatformInjector
+      </li>
+      <li>
+        RootInjector creates single instance of dependency that is shared across
+        the application.
+      </li>
+      <li>
+        ElementInjector creates new instance of dependency for every instance of
+        component/element, defined by importing in providers array of component
+      </li>
+      <li>
+        ModuleInjector creates new instance dependency for each instance of the
+        module that is shared between components declared in that module
+      </li>
+      <li>DI looks for Dependency resolution  from the same element it's defined in to upto top level, returns first encountered dependency.</li>
+      <li>
+        NullInjector is at the top of component tree, if angular reaches at NullInjector while looking for dependency, it throws an error.
+      </li>
+      <li>
+        Hierarchical Dependency Injection helps in creating private isolated components/modules providing modularity 
+      </li>
+      <li>here in this example the single dependency HdiService is injected at multiple levels having their own private instance without sharing it to others.</li>
+    </ul>
+  </div>
+</div>
